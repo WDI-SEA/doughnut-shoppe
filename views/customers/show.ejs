@@ -1,0 +1,27 @@
+<h1>Customer Detail</h1>
+
+<%= customer.name %> the <%= customer.age %> year old
+
+<h2>Favorites</h2>
+
+<% if (customer.donuts.length) { %>
+    <% customer.donuts.forEach(d => { %>
+        <div>
+            <img src="<%=d.image%>" alt="donut">
+            <p><%= d.name %></p>
+        </div>
+    <% }) %>
+<% } else { %>
+    <p>No favorites yet!!</p>
+<% } %>
+
+<h2>Add New Faves</h2>
+
+<% allDonuts.forEach(d => { %>
+    <div>
+        <%= d.name %> 
+        <a href="/customers/<%=customer.id%>/donuts/<%=d.id%>">
+            Add to Favorites
+        </a>
+    </div>
+<% }) %>

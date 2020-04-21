@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
   db.shop.create(req.body)
   .then(newShop => {
-    res.redirect('/shops')
+    res.redirect('/shops/' + newShop.id)
   })
   .catch(err => {
     console.log('Error', err)
